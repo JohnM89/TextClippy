@@ -31,8 +31,8 @@
       "type": "image/png"
     }
   ],
-  "name": "NOT-JATE - NOT Just Another Text Editor",
-  "short_name": "JATE",
+  "name": "NOTJATE - Not Just Another Text Editor",
+  "short_name": "NOJATE",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "./",
