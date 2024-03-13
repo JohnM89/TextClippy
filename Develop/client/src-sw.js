@@ -1,14 +1,20 @@
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
-const { CacheFirst } = require('workbox-strategies');
+const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
+// cache names defined with versioning
+const CACHE_NAMES = {
+  assetCache: 'asset-cache-v1', 
+  pageCache: 'page-cache-v1', 
+};
+
 precacheAndRoute(self.__WB_MANIFEST);
 
 const pageCache = new CacheFirst({
-  cacheName: 'page-cache',
+  cacheName: CACHE_NAMES.pageCache,
   plugins: [
     new CacheableResponsePlugin({
       statuses: [0, 200],
@@ -18,6 +24,7 @@ const pageCache = new CacheFirst({
     }),
   ],
 });
+
 
 warmStrategyCache({
   urls: ['/index.html', '/'],
@@ -30,8 +37,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 registerRoute(
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new StaleWhileRevalidate({
-    // Name of the cache storage.
-    cacheName: 'asset-cache',
+    cacheName: CACHE_NAMES.assetCache,
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200],
@@ -40,3 +46,18 @@ registerRoute(
   })
 );
 
+// activate event for cleaning old caches
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (!Object.values(CACHE_NAMES).includes(cacheName)) {
+            console.log(`Deleting old cache: ${cacheName}`);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
