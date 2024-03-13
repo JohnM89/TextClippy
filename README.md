@@ -12,7 +12,9 @@
 
 # Try it out
 
-🔗🔗[CLICK ME!](https://tranquil-eyrie-59285-63d53bcd7da5.herokuapp.com/) 🔗🔗
+🔗🔗[Heroku!](https://tranquil-eyrie-59285-63d53bcd7da5.herokuapp.com/) 🔗🔗
+
+🔗🔗[Render!](https://not-jate-4.onrender.com/)🔗🔗
 
 
 ## Features
@@ -45,7 +47,7 @@
 
 ## Deployment
 
-The application is deployed on Render & Heroku. You can access it on Render [here](https://tranquil-eyrie-59285-63d53bcd7da5.herokuapp.com/). 🌐💻
+The application is deployed on Render & Heroku. You can access it on Render [here](https://not-jate-4.onrender.com/). 🌐💻
 
 ## Screenshots
 
