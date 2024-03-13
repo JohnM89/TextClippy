@@ -26,19 +26,24 @@ module.exports = () => {
         swDest: 'service-worker.js',
       }),
       new WebpackPwaManifest({
-        name: 'Your App Name',
-        short_name: 'AppShortName',
-        description: 'Your App Description',
-        background_color: '#ffffff',
-        crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
+        fingerprints: false,
+        inject: true,
+        name: 'Text Editor PWA',
+        short_name: 'TextClippy',
+        description: 'A Progressive Web Application for editing and saving text & code snippets, even without internet connection.',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
-            src: path.resolve('src/assets/icon.png'),
-            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512], 
             destination: path.join('assets', 'icons'),
           },
         ],
       }),
+
     ],
     module: {
       rules: [
