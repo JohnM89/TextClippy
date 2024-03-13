@@ -49,7 +49,7 @@ The application is deployed on Render & Heroku. You can access it on Render [her
 
 ## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/JohnM89/TextClippy/main/Develop/screenshots/Screenshot%20(9).png) 🖼️📸
+![Screenshot](/cautious-meme/Develop/screenshots/Screenshot%20(9).png) 🖼️📸
 
 
 ## Contributions
