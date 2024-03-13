@@ -22,14 +22,14 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc: './src/sw.js',
-        swDest: 'service-worker.js',
+        swSrc: './src-sw.js',
+        swDest: './src-sw.js',
       }),
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'Text Editor PWA',
-        short_name: 'TextClippy',
+        name: 'NOTJATE - Not Just Another Text Editor',
+        short_name: 'NOJATE',
         description: 'A Progressive Web Application for editing and saving text & code snippets, even without internet connection.',
         background_color: '#225ca3',
         theme_color: '#225ca3',
