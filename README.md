@@ -49,8 +49,7 @@ The application is deployed on Render & Heroku. You can access it on Render [her
 
 ## Screenshots
 
-![Screenshot](/Not-JATE/Develop/screenshots
-/Screenshot (9).png) 🖼️📸
+![Screenshot](./Develop/screenshots/Screenshot%20(9).png) 🖼️📸
 
 
 ## Contributions
